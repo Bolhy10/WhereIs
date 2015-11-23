@@ -1,0 +1,14 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^inicio$ pages/whereis.php [L]
+RewriteRule ^login$ pages/login_whereis.php [L]
+RewriteRule ^account$ pages/account/account_whereis.php [L]
+RewriteRule ^password$ pages/account/password_whereis.php [L]
+RewriteRule ^myplaces$ pages/account/places_whereis.php [L]
+RewriteRule ^delete_act$ pages/account/delete_whereis.php [L]
+RewriteRule ^whereispanama$ index.php [L]
+
+RewriteRule ^profile$ pages/profile_whereis.php [L]
+</IfModule>
