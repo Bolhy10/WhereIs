@@ -773,8 +773,9 @@ div.where_is{
 }
 .where_is .micro .micro-text{
     font-family: "Open Sans", "sans-serif";
-    font-size: 9px;
+    font-size: 12px;
     text-align: center;
+	color: #705d6e;
 }
 
 
@@ -922,3 +923,16 @@ div.where_is{
     border-radius: 2px;
     color: #fff;
 }
+#consulta{
+   width: 800px;
+   margin: 0 auto;
+   height: 40px;
+   text-align: center;
+}
+#boton{
+   width: 800px;
+   margin: 0 auto;
+   height: 40px;
+   text-align: center;
+}
+

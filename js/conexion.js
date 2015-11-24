@@ -1,5 +1,14 @@
 var mic = new Wit.Microphone(document.getElementById("microphone"));
 var vec=[];
+var comercio, lugar;
+
+var BD=function(c,l) {
+	document.getElementById("consulta").innerHTML = "Lo que deseas buscar es lo siguiente: " + c +" "+ l;
+	// window.location.href = "../php/consulta.php?comercio=" + c;
+	 //window.location.href = "/php/consulta.php?lugar=" + l; 
+	document.getElementById("boton").innerHTML='<button type="button" class="btn btn-primary btn-xs" onclick="enviar()">Continuar</button>';
+};
+
 var info = function (msg) {
         document.getElementById("info").innerHTML = msg;
     };
@@ -33,7 +42,8 @@ var info = function (msg) {
             }
         }
 
-        document.getElementById("result").innerHTML = r;
+        //document.getElementById("result").innerHTML = r;
+		BD(comercio,lugar);
     };
     mic.onerror = function (err) {
         error("Error: " + err);
@@ -56,12 +66,19 @@ var info = function (msg) {
             v = JSON.stringify(v);
         }
 
-        alert("El valor de k es: "+k);
-        alert("El valor de v es: "+v);
-        BD(v);
+		//Agregando la linea de la conexión
+	if((k=="local")){
+		comercio=v;    //se le asigna a la variable comercio el valor de v solo cuando la entidad k es local
+		console.log(comercio);
+	}else if(k=="lugar"){
+		lugar=v;      //se le asigna a la variable lugar el valor de v solo si la entidad k es lugar
+		console.log(lugar);
+	}
+
         return k + "=" + v + "\n";
     }
-var BD=function(v){
-vec.push(v);
-console.log(vec.length);
+
+function enviar(){
+window.location.href = "consulta.php?comercio=" + comercio;
+window.location.href = "consulta.php?lugar=" + lugar; 
 }
