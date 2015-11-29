@@ -6,8 +6,8 @@ var info = function (msg) {
 };
 
 var BD=function(c,l) {
-	document.getElementById("consulta").innerHTML = "Lo que deseas buscar es lo siguiente: " + c +" "+ l;
-	document.getElementById("boton").innerHTML='<button onclick="enviar()">Continuar</button>';
+	document.getElementById("consulta").innerHTML = "Lo que deseas buscar es lo siguiente: " + c +" "+ l+"?";
+	document.getElementById("boton").innerHTML='<button type="button" class="btn btn-primary btn-xs" onclick="enviar()">Continuar</button>';
 };
 
 var error = function (msg) {
