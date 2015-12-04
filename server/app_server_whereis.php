@@ -12,7 +12,13 @@ require_once('conexion/conex_whereis.php');
     case 'login_whereis':
 
         $username = htmlspecialchars($_POST["username"]);
+        $username = stripslashes($username);
+        $username = mysql_real_escape_string($username);
+
         $email = htmlspecialchars($_POST["email"]);
+        $email = stripslashes($email);
+        $email = mysql_real_escape_string($email);
+
         $password = sha1($_POST["password"]);
         $photo = mt_rand(1,1000);
         if(!empty($username) && !empty($email) && !empty($password)){
@@ -153,6 +159,8 @@ require_once('conexion/conex_whereis.php');
 
      case 'search':
          $local = htmlspecialchars($_POST["local"]);
+         $local = stripslashes($local);
+         $local = mysql_real_escape_string($local);
          //Consulta de los locales o lugares
          $r = "SELECT * FROM places INNER JOIN principalwis ON (principalwis.id_places = places.id) INNER JOIN provincewis ON (provincewis.id_proWis = principalwis.id_proWis) INNER JOIN tradewis ON (tradewis.id_coWis = principalwis.tradewis) INNER JOIN photo_placeswis ON (photo_placeswis.id = principalwis.photo_placesWis) WHERE tradewis.local LIKE '%$local%' OR places.places LIKE '%$local%' ";
          $lc = $mysqli -> query($r);

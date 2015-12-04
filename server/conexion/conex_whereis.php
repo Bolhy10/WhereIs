@@ -13,7 +13,7 @@ include('ez_sql_mysql.php');
     $hostname = 'localhost';
     $database = 'whereis_pma';
     $username = 'root';
-    $password = 'YES';
+    $password = '';
 //MySQLi
 $mysqli = new mysqli($hostname, $username,$password, $database);
 if ($mysqli -> connect_errno) {
