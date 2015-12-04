@@ -69,6 +69,8 @@ include('../tools/header.php');
             <div id="info" class="micro-text"></div>
             <div id="error" class="micro-text"></div>
     </div>
+	        <div id=consulta></div>
+            <div id="boton"></div>
 </div>
 <?php
 include('../tools/footer.php');
