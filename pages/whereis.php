@@ -36,9 +36,10 @@ include('../tools/header.php');
 ?>
 <div class="container-fluid where_is">
     <div class="search-trade">
-        <input type="text" name="search" id="search" placeholder="Buscar por: Comercio / Sucursales..."/>
+        <input type="text" name="search" id="search" onkeyup="search_local();" placeholder="Buscar por: Comercio / Sucursales..."/>
     </div>
     <div class="row">
+        <div class="panel-trade">
         <?php
         $r = "SELECT * FROM places INNER JOIN principalwis ON (principalwis.id_places = places.id) INNER JOIN provincewis ON (provincewis.id_proWis = principalwis.id_proWis) INNER JOIN tradewis ON (tradewis.id_coWis = principalwis.tradewis) INNER JOIN photo_placeswis ON (photo_placeswis.id = principalwis.photo_placesWis) WHERE places.id = '$places_id' ";
         $r_query = $mysqli -> query($r);
@@ -51,6 +52,7 @@ include('../tools/header.php');
                     <p>
                         <span><i class="icon-location"></i><?php echo utf8_encode($h['local'].' / '.$h['places']); ?></span>
                         <span><?php echo utf8_encode($h['province']); ?></span>
+                        <span><i class="icon-clock"></i> <?php echo $h['horario']; ?></span>
                         <span><i class="icon-phone"></i> <?php echo $h['phone']; ?></span>
                     </p>
                 </div>
@@ -59,6 +61,7 @@ include('../tools/header.php');
         <?php
         }
         ?>
+            </div>
     </div>
     <div class="micro">
             <div id="microphone"></div>

@@ -145,11 +145,38 @@ require_once('conexion/conex_whereis.php');
          break;
 
      case 'sexo':
-
          $sexo = $_POST["sexo"];
          $username = $_SESSION["user"];
          $se = "UPDATE user_wis SET sexo = '$sexo' WHERE username = '$username' ";
          $se_query = $mysqli-> query($se);
+         break;
+
+     case 'search':
+         $local = htmlspecialchars($_POST["local"]);
+         //Consulta de los locales o lugares
+         $r = "SELECT * FROM places INNER JOIN principalwis ON (principalwis.id_places = places.id) INNER JOIN provincewis ON (provincewis.id_proWis = principalwis.id_proWis) INNER JOIN tradewis ON (tradewis.id_coWis = principalwis.tradewis) INNER JOIN photo_placeswis ON (photo_placeswis.id = principalwis.photo_placesWis) WHERE tradewis.local LIKE '%$local%' OR places.places LIKE '%$local%' ";
+         $lc = $mysqli -> query($r);
+
+         if($lc -> num_rows > 0){
+         while($j = $lc -> fetch_array()) {
+             echo '<div class="col-lg-4">
+            <div class="comodin">
+                <div class="comodin-img"><img src=' . $j["url_photo"] . '></div>
+                <div class="comodin-text">
+                    <p>
+                        <span><i class="icon-location"></i>' . utf8_encode($j["local"] . " / " . $j["places"]) . '</span>
+                        <span>' . utf8_encode($j["province"]) . '</span>
+                        <span><i class="icon-clock"></i> ' . $j["horario"] . '</span>
+                        <span><i class="icon-phone"></i> ' . $j["phone"] . '</span>
+                    </p>
+                </div>
+            </div>
+        </div>';
+         }
+         }else{
+                 echo '<div class="no-search col-lg-12"><h2><i class="icon-confused"></i> !Oh no he encontrado ning&uacute;n resultado. Intentalo Nuevamente.</h2></div>';
+             }
+
          break;
 
 

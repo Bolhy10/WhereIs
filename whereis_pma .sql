@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2015 a las 07:56:55
+-- Tiempo de generación: 04-12-2015 a las 18:23:49
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.5.30
 
@@ -136,6 +136,7 @@ CREATE TABLE `principalwis` (
   `id` int(3) NOT NULL,
   `tradewis` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `horario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `photo_placesWis` varchar(3) COLLATE utf8_spanish_ci NOT NULL,
   `id_places` int(3) NOT NULL,
   `id_proWis` int(3) NOT NULL
@@ -145,10 +146,10 @@ CREATE TABLE `principalwis` (
 -- Volcado de datos para la tabla `principalwis`
 --
 
-INSERT INTO `principalwis` (`id`, `tradewis`, `phone`, `photo_placesWis`, `id_places`, `id_proWis`) VALUES
-(9, '3', '3007708', '28', 2, 8),
-(12, '1', '323-8877.', '26', 2, 8),
-(15, '2', '323-8853', '27', 2, 8);
+INSERT INTO `principalwis` (`id`, `tradewis`, `phone`, `horario`, `photo_placesWis`, `id_places`, `id_proWis`) VALUES
+(9, '3', '3007708', '10:00 am - 10:00 pm', '28', 2, 8),
+(12, '1', '323-8877.', '10:00 am - 11:00 pm', '26', 2, 8),
+(15, '2', '323-8853', '10:00 am - 7:00 pm', '27', 2, 8);
 
 -- --------------------------------------------------------
 
@@ -326,7 +327,7 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT de la tabla `principalwis`
 --
 ALTER TABLE `principalwis`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `provincewis`
 --
@@ -341,7 +342,7 @@ ALTER TABLE `roles_administrator`
 -- AUTO_INCREMENT de la tabla `tradewis`
 --
 ALTER TABLE `tradewis`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT de la tabla `user_wis`
 --

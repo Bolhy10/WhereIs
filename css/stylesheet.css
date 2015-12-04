@@ -342,7 +342,6 @@ footer .container .col-lg-4 ul.boletin li button:hover{
 .loader .ball-pulse > div{
     background: rgba(72, 130, 255, 0.8);
 }
-
 /*Disegn login */
 .login-whereis{
     width: 100%;
@@ -777,6 +776,18 @@ div.where_is{
     text-align: center;
 }
 
+.panel-trade{
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+.no-search{
+    color: #ac2925;
+    text-align: center;
+    padding: 20px;
+    font-family: "Open Sans", "sans-serif";
+    font-weight: 700;
+}
 
 
 

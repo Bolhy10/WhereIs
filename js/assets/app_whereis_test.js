@@ -202,3 +202,20 @@ $(document).ready(function () {
     });
 });
 
+function search_local(){
+    var local = document.getElementById('search').value; 
+    $.ajax({
+       type:'POST',
+        url:'server/app_server_whereis.php', 
+        data:{
+            local:local,
+            wis:'search'
+        },
+        success: function (data) {
+                $('.panel-trade').html('<div class="loader"><h2>Buscando<div class="loader-inner ball-pulse"><div></div><div></div><div></div></div></div></h2>');
+                setTimeout(function () {
+                    $('.panel-trade').html(data);
+                }, 1000);
+        }
+    });
+}
