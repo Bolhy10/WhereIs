@@ -63,14 +63,14 @@ include('../tools/header.php');
         ?>
             </div>
     </div>
-    <div class="micro">
+   <!-- <div class="micro">
             <div id="microphone"></div>
             <div id="result" class="micro-text"></div>
             <div id="info" class="micro-text"></div>
             <div id="error" class="micro-text"></div>
     </div>
 	        <div id=consulta></div>
-            <div id="boton"></div>
+            <div id="boton"></div>-->
 </div>
 <?php
 include('../tools/footer.php');

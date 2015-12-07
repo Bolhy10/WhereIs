@@ -219,3 +219,23 @@ function search_local(){
         }
     });
 }
+
+function people(){
+    var people = document.getElementById('people').value;
+
+    if(people.length == ""){
+        $('.people-panel').hide();
+    }else {
+        $.ajax({
+            type: 'POST',
+            url: 'server/app_server_whereis.php',
+            data: {
+                people: people,
+                wis: 'people'
+            },
+            success: function (data) {
+                $('.people-panel').html(data).show();
+            }
+        });
+    }
+}

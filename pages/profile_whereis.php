@@ -32,23 +32,56 @@ if(isset($_SESSION['user']) == false){
 <?php
 include('../tools/header.php');
 ?>
-<div class="panel-profile">
-    <div class="profile">
-        <div class="profile-pant">
-        <div class="profile-user">
-            <div class="profile-user-img"><img src="<?php echo $photo; ?>"></div>
-            <div class="profile-user-text">
-                <h3><?php echo $username;?></h3>
-                <p>
-                    <span><i class="icon-location"></i> <?php echo utf8_encode($you_lives); ?></span>
-                    <span><?php echo utf8_encode($about_me); ?></span>
-                    <span><a href="https://twitter.com/<?php $socialmedia; ?>"><i class="icon-twitter"></i> <?php echo utf8_encode($socialmedia); ?></a></span>
-                </p>
+
+<?php
+@$tfs = $_GET["tfs"];
+if($tfs == null) {
+    ?>
+    <div class="panel-profile">
+        <div class="profile">
+            <div class="profile-pant">
+                <div class="profile-user">
+                    <div class="profile-user-img"><img src="<?php echo $photo; ?>"></div>
+                    <div class="profile-user-text">
+                        <h3><?php echo $username; ?></h3>
+                        <p>
+                            <span><i class="icon-location"></i> <?php echo utf8_encode($you_lives) . ', ' . utf8_encode($province); ?></span>
+                            <span><?php echo utf8_encode($about_me); ?></span>
+                            <span><a href="https://twitter.com/<?php $socialmedia; ?>"><i class="icon-twitter"></i> <?php echo utf8_encode($socialmedia); ?></a></span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
     </div>
-</div>
+    <?php
+}else{
+    $people = "SELECT * FROM user_wis INNER JOIN  provincewis ON (provincewis.id_proWis = user_wis.province) INNER JOIN photo_user_wis ON (photo_user_wis.photo = user_wis.photo) INNER JOIN places ON (places.id = user_wis.you_lives) WHERE user_wis.Username = '$tfs' ";
+    $tfp = $mysqli -> query($people);
+    while($k = $tfp -> fetch_array()) {
+        ?>
+        <div class="panel-profile">
+            <div class="profile">
+                <div class="profile-pant">
+                    <div class="profile-user">
+                        <div class="profile-user-img"><img src="<?php echo $k["url_photo"]; ?>"></div>
+                        <div class="profile-user-text">
+                            <h3><?php echo $k["Username"]; ?></h3>
+                            <p>
+                                <span><i class="icon-location"></i> <?php echo utf8_encode($k["places"]) . ', ' . utf8_encode($k["province"]); ?></span>
+                                <span><?php echo utf8_encode($k["about_me"]); ?></span>
+                            <span><a href="https://twitter.com/<?php $k["socialmedia"]; ?>"><i
+                                        class="icon-twitter"></i> <?php echo utf8_encode($k["socialmedia"]); ?></a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+}
+?>
 
 
 <?php

@@ -25,7 +25,6 @@ a div.header-logo{
 }
 header {
     width: 100%;
-    z-index: 1000;
 }
 header nav {
     background:#ffffff;
@@ -36,7 +35,6 @@ header nav {
 }
 header nav ul {
     list-style:none;
-
 }
 header nav ul li{
     display:inline-block;
@@ -221,8 +219,10 @@ footer .container .col-lg-4 ul.boletin li input{
     font-family: "Open Sans", "sans-serif";
     padding: 10px;
 }
+footer .container .col-lg-4 ul.boletin li input#people{
+    width: 350px;
+}
 footer .container .col-lg-4 ul.boletin li input:focus{
-    border: 0px;
     outline: none;
 }
 footer .container .col-lg-4 ul.boletin li button{
@@ -236,6 +236,45 @@ footer .container .col-lg-4 ul.boletin li button:hover{
     border: 1px solid rgba(72, 130, 255, 0.5);
     color: rgba(72, 130, 255, 0.5);
 }
+/*People Panel*/
+.people-panel{
+    width:350px;
+    background:#FFFFFF;
+    position:absolute;
+    bottom: 50px;
+    left: 20px;
+    border: 1px solid #cccccc;
+    display: none;
+}
+.people-panel a.m-people{
+    display: block;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 10px;
+}
+.people-panel a.m-people:hover{
+    background: rgba(72, 130, 255, 0.3);
+}
+a.m-people .col-lg-2 img{
+    width: 48px;
+    height: 48px;
+}
+a.m-people .col-lg-10 span{
+    font-family: "Open Sans", "sans-serif";
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+}
+a.m-people .col-lg-10 span.text-people{
+    font-size: 12px;
+    font-weight: 400;
+    color:#204d74;
+}
+a.m-people h6{
+    font-family: "Open Sans", "sans-serif";
+    font-weight: 700;
+}
+
 /*Cuerpo de mi body principal*/
 .proper{
     width: 100%;
@@ -710,11 +749,11 @@ div.where_is{
     margin: 0 auto;
 }
 .where_is .search-trade{
-    width: 400px;
+    width: 100%;
     padding: 20px;
 }
 .where_is .search-trade input{
-    width: 100%;
+    width: 25%;
     padding:15px;
     height: 35px;
     font-size: 16px;
@@ -803,7 +842,7 @@ div.where_is{
     .menu_bar {
         display:block;
         width:100%;
-        position: fixed;
+        position: absolute;
         top:0;
         background:#FFFFFF;
         border-bottom: 2px solid #cccccc;
@@ -821,23 +860,21 @@ div.where_is{
         padding: 20px;
         border-left:2px solid #ccc;
     }
-
     header a.whereislogo{
         display: none;
     }
-
     header nav{
         width: 100%;
+        position: relative;
+        right: 100%;
         height: calc(100% - 80px);
-        position: fixed;
-        right:100%;
         margin: 0;
         background:rgb(248,248,248)!important;
         padding: 0px;
+        z-index: 1000;
     }
     header nav ul{
         left: 0%;
-
     }
 
     header nav ul li {
@@ -895,8 +932,6 @@ div.where_is{
         width: 100%;
     }
 }
-
-
 .btn-radio .radio label,
 .btn-radio .checkbox label {
     display: inline-block;

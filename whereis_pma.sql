@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2015 a las 18:23:49
+-- Tiempo de generación: 07-12-2015 a las 05:11:29
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.5.30
 
@@ -77,8 +77,8 @@ CREATE TABLE `photo_user_wis` (
 --
 
 INSERT INTO `photo_user_wis` (`id_photo`, `username`, `photo`, `url_photo`) VALUES
-(5, '6', 18, 'images/userwhereis/terminator10/mario.jpg'),
-(6, '7', 28, 'images/userwhereis/terminator10/mario.jpg');
+(6, '7', 28, 'images/userwhereis/terminator10/Terminator-Genisys.jpg'),
+(7, '8', 105, 'images/userwhereis/defecto/login_usuario.png');
 
 -- --------------------------------------------------------
 
@@ -217,6 +217,7 @@ CREATE TABLE `user_wis` (
   `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(128) COLLATE utf8_spanish_ci NOT NULL,
   `you_lives` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `province` varchar(3) COLLATE utf8_spanish_ci NOT NULL,
   `photo` varchar(3) COLLATE utf8_spanish_ci NOT NULL,
   `socialmedia` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `about_me` varchar(1000) COLLATE utf8_spanish_ci NOT NULL,
@@ -227,9 +228,9 @@ CREATE TABLE `user_wis` (
 -- Volcado de datos para la tabla `user_wis`
 --
 
-INSERT INTO `user_wis` (`id`, `Username`, `last_name`, `sexo`, `email`, `password`, `you_lives`, `photo`, `socialmedia`, `about_me`, `places_id`) VALUES
-(2, 'bolhy10', '', '', 'bolhy10@hotmail.com', '520603a0058e2a97d4d81629975b95950e4b660c', '2', '', '', '', 1),
-(7, 'terminator10', 'Bolivar Cortes', 'M', 'terminator10@whereis.com.pa', '879d4af1eba734b18672098bb6908ec5e217b3ee', '2', '28', '@terminator10', 'Estudiante de la UP. Ingenieria en Informatica. Cada dia aprendiendo algo nuevo. www.compilerun.com', 2);
+INSERT INTO `user_wis` (`id`, `Username`, `last_name`, `sexo`, `email`, `password`, `you_lives`, `province`, `photo`, `socialmedia`, `about_me`, `places_id`) VALUES
+(7, 'terminator10', 'Bolivar Cortes', 'M', 'terminator10@whereis.com.pa', '879d4af1eba734b18672098bb6908ec5e217b3ee', '2', '8', '28', '@terminator10', 'Estudiante de la UP. Ingenieria en Informatica. Cada dia aprendiendo algo nuevo. www.compilerun.com', 2),
+(8, 'Rey-17', 'Reynaldo Villarreal', 'M', 'reynaldo@gmail.com', 'ead95877de072380696f2125290d6964d4fae14d', '23', '8', '105', '@rey-17', 'Trabajador de Whereis Panama. Mejorando cada dia en la vida. ', 23);
 
 --
 -- Índices para tablas volcadas
@@ -317,7 +318,7 @@ ALTER TABLE `photo_placeswis`
 -- AUTO_INCREMENT de la tabla `photo_user_wis`
 --
 ALTER TABLE `photo_user_wis`
-  MODIFY `id_photo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_photo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `places`
 --
@@ -347,7 +348,7 @@ ALTER TABLE `tradewis`
 -- AUTO_INCREMENT de la tabla `user_wis`
 --
 ALTER TABLE `user_wis`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Restricciones para tablas volcadas
 --

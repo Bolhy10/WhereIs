@@ -179,6 +179,42 @@ require_once('conexion/conex_whereis.php');
 
          break;
 
+     case 'people':
+
+         $people = htmlspecialchars($_POST["people"]);
+         $u = "SELECT * FROM user_wis INNER JOIN photo_user_wis ON (photo_user_wis.photo = user_wis.photo)
+               INNER JOIN places ON (places.id = user_wis.you_lives)
+               INNER JOIN  provincewis ON (provincewis.id_proWis = user_wis.province) WHERE user_Wis.Username LIKE '%$people%' OR last_name LIKE '%$people%' ";
+         $uq = $mysqli -> query($u);
+         if(!empty($people)) {
+             if ($uq->num_rows > 0) {
+                 while ($people = $uq->fetch_array()) {
+                     echo '
+              <a href="profile?tfs='.$people["Username"].'" class="m-people">
+                            <div class="row">
+                                <div class="col-lg-2"><img src=' . $people["url_photo"] . '></div>
+                                <div class="col-lg-10">
+                                    <span>' . $people["last_name"] . " - " . $people["socialmedia"] . '</span>
+                                    <span class="text-people">' . $people["places"] . '</span>
+                                    <span class="text-people">' . utf8_encode($people["province"]) . '</span>
+                                </div>
+                            </div>
+                        </a>
+             ';
+                 }
+             } else {
+                 echo '
+             <a href="#" class="m-people">
+             <div class="row">
+             <div class="col-lg-12">
+             <h6><i class="icon-search"></i> Ning&uacute;n resultado de ' . $people . '</h6>
+             </div></div></a>
+             ';
+             }
+         }
+
+         break;
+
 
 
 

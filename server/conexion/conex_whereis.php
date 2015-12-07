@@ -13,7 +13,7 @@ include('ez_sql_mysql.php');
     $hostname = 'localhost';
     $database = 'whereis_pma';
     $username = 'root';
-    $password = 'YES';
+    $password = '';
 //MySQLi
 $mysqli = new mysqli($hostname, $username,$password, $database);
 if ($mysqli -> connect_errno) {
@@ -24,6 +24,7 @@ if ($mysqli -> connect_errno) {
     $data = "SELECT * FROM user_wis
              INNER JOIN photo_user_wis ON (photo_user_wis.photo = user_wis.photo)
              INNER JOIN places ON (places.id = user_wis.you_lives)
+             INNER JOIN provincewis ON (provincewis.id_proWis = user_Wis.province)
             WHERE 1";
     $row_data = $mysqli -> query($data);
     while($fi = $row_data -> fetch_array()){
@@ -37,6 +38,9 @@ if ($mysqli -> connect_errno) {
         $about_me = $fi["about_me"];
         $places_id = $fi["places_id"];
         $sexo = $fi["sexo"];
+        $province = $fi["province"];
+        $id_proWis = $fi["id_proWis"];
+
     }
 
 

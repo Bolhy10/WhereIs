@@ -21,7 +21,7 @@ function main () {
             });
             contador = 1;
             $('nav').animate({
-                left: '-100%'
+                left: '100%'
             });
 
         }

@@ -32,14 +32,37 @@
                 <li><a href="#">Blog</a></li>
             </ul>
         </div>
-        <div class="col-lg-4">
-            <h3>Cont&aacute;ctenos</h3>
-            <p>Coloca tu correo electr&oacute;nico para recibir informaci&oacute;n de los nuevos lugares en Panam&aacute;.</p>
-            <ul class="boletin">
-                <li><input type="text" placeholder="Introduce tu correo..."/></li>
-                <li> <button type="button">Suscribirse</button></li>
-            </ul>
-        </div>
+        <?php
+        if(@$_SESSION["user"] == false) {
+            ?>
+            <div class="col-lg-4">
+                <h3>Cont&aacute;ctenos</h3>
+
+                <p>Coloca tu correo electr&oacute;nico para recibir informaci&oacute;n de los nuevos lugares en Panam&aacute;.</p>
+                <ul class="boletin">
+                    <li><input type="text" placeholder="Introduce tu correo..."/></li>
+                    <li>
+                        <button type="button">Suscribirse</button>
+                    </li>
+                </ul>
+            </div>
+            <?php
+        }else {
+            ?>
+            <div class="col-lg-4">
+                <h3>Busca a tu amigo:</h3>
+
+                <p>Whereis te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.</p>
+                <ul class="boletin">
+
+                    <div class="people-panel">
+                    </div>
+                    <li><input type="text" placeholder="Buscar persona..." id="people" onkeyup="people();"/></li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
     </div>
     <div class="panel-footer">
         <div class="container">

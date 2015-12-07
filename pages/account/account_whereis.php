@@ -67,15 +67,15 @@ include('../../tools/header.php');
                                 <input type="text" name="email" id="email" class="put-info" value="<?php echo $email; ?>"/>
                             </div>
                             <div class="info-input">
-                                <label for="">Por donde vivo:</label>
+                                <label for="">Provincia:</label>
                                 <select name="you_lives" id="you_lives">
-                                    <option value="<?php echo $lives; ?>" selected><?php echo utf8_encode($you_lives); ?></option>
+                                    <option value="<?php echo $id_proWis; ?>" selected><?php echo utf8_encode($province); ?></option>
                                     <?php
-                                    $places = "SELECT * FROM places where places != '$you_lives' ";
+                                    $places = "SELECT * FROM provincewis WHERE province != '$province' ";
                                     $places_query = $mysqli -> query($places);
                                     while($p = $places_query -> fetch_array()) {
                                         ?>
-                                        <option value="<?php echo $p["id"]?>"><?php echo utf8_encode($p["places"]); ?></option>
+                                        <option value="<?php echo $p["id_proWis"]?>"><?php echo utf8_encode($p["province"]); ?></option>
                                         <?php
                                     }
                                     ?>
