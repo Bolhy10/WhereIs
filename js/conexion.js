@@ -84,7 +84,7 @@ function kv (k, v) {
 
 function enviar(){    //Funcion en jquery que enviara mediante POST las variables comercio y lugar
 $.ajax({
-	url:'consulta.php',
+	url:'server/consulta.php',
 	type:'POST',
 	data:{intent: intent, comercio: comercio,lugar:lugar},
 	dataType: 'json',
