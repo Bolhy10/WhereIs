@@ -32,9 +32,9 @@ if(!empty($_FILES["file_photo"]) && !empty($_POST["email"])
             $src_1 = "images/userwhereis/$username/$nombre";
 
             move_uploaded_file($ruta_p,$src);
-            $user = $mysqli -> query("UPDATE user_Wis SET last_name='$nom', email = '$email', you_lives = '$you_lives', about_me = '$about_me', socialmedia = '$socialmedia' WHERE username = '$username' ");
+            $user = $mysqli -> query("UPDATE user_Wis SET last_name='$nom', email = '$email', province = '$you_lives', about_me = '$about_me', socialmedia = '$socialmedia' WHERE username = '$username' ");
             if($ruta_p != null){
-                $photo = $mysqli -> query("UPDATE photo_user_wis SET url_photo = '$src_1' ");
+                $photo = $mysqli -> query("UPDATE photo_user_wis SET url_photo = '$src_1' WHERE photo = '$id_photo'");
             }
             if($user && $photo){
                 echo "<p class='text-danger'><i class='icon-grin'></i> !Oh, Se actualizo la cuenta.</p>";

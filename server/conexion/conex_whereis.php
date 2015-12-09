@@ -21,11 +21,14 @@ if ($mysqli -> connect_errno) {
         . ") " . $mysqli -> mysqli_connect_error());
 }else{
     session_start();
+    if(!empty($_SESSION["user"])){
+        $username = $_SESSION["user"];
+    }
     $data = "SELECT * FROM user_wis
              INNER JOIN photo_user_wis ON (photo_user_wis.photo = user_wis.photo)
              INNER JOIN places ON (places.id = user_wis.you_lives)
              INNER JOIN provincewis ON (provincewis.id_proWis = user_Wis.province)
-            WHERE 1";
+            WHERE user_wis.Username = '$username' ";
     $row_data = $mysqli -> query($data);
     while($fi = $row_data -> fetch_array()){
         $username = $fi["Username"];
@@ -34,6 +37,7 @@ if ($mysqli -> connect_errno) {
         $you_lives = $fi["places"];
         $lives = $fi["id"];
         $photo = $fi["url_photo"];
+        $id_photo = $fi["photo"];
         $socialmedia = $fi["socialmedia"];
         $about_me = $fi["about_me"];
         $places_id = $fi["places_id"];

@@ -38,6 +38,8 @@ function main () {
     });
 }
 $(document).ready(function () {
+    $('#mensaje').slideDown(2000);
+
     main();
     $('#login-button').click(function () {
         var user = document.getElementById('username-email').value;

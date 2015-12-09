@@ -1,6 +1,8 @@
+/*Body Inicial*/
 body{
     background:rgb(248,248,248)!important;
 }
+/*Logo de whereis*/
 a div.header-logo{
     background: transparent  url("../images/asset/whereis.png");
     background-size: 100% 100%;
@@ -13,6 +15,7 @@ a div.header-logo{
     top: 5px;
     left:15%;
 }
+/*Aplicado en todas nuestras paginas para poder manejar mejor el contenido*/
 * {
     padding:0;
     margin:0;
@@ -20,9 +23,11 @@ a div.header-logo{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+/*Barra de menu para el design responsive*/
 .menu_bar {
     display:none;
 }
+/*Cabecera de whereis para todas las paginas*/
 header {
     width: 100%;
 }
@@ -452,6 +457,18 @@ a.m-people h6{
 .error{
     font-size: 14px;
     font-family: "Open Sans", "sans-serif";
+}
+#mensaje{
+    display: none;
+    background:rgba(72, 130, 255, 0.6);
+    color: #fff;
+    border-radius: 0px;
+    font-family: "Open Sans", "sans-serif";
+    font-weight: 600;
+}
+#mensaje a{
+    color: #FFFFFF;
+    font-weight: 900;
 }
 
 /*Profile*/
@@ -929,6 +946,9 @@ div.where_is{
         top: 55px;
     }
     .children li a{
+        width: 100%;
+    }
+    .where_is .search-trade input{
         width: 100%;
     }
 }

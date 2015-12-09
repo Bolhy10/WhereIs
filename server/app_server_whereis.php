@@ -27,7 +27,7 @@ require_once('conexion/conex_whereis.php');
             if($row_login -> num_rows > 0){
                 echo 2;
             }else{
-                    $query = "INSERT INTO user_wis (username,email,password,photo,you_lives,places_id) VALUES ('".$username."','".$email."','".$password."','".$photo."',29,29)";
+                    $query = "INSERT INTO user_wis (username,email,password,photo,you_lives,places_id,province) VALUES ('".$username."','".$email."','".$password."','".$photo."',29,29,0)";
                     $result = $mysqli -> query($query);
                     if($result){
                         $log = "SELECT * FROM user_wis WHERE username = '$username' AND password = '$password' ";
@@ -192,7 +192,7 @@ require_once('conexion/conex_whereis.php');
          $people = htmlspecialchars($_POST["people"]);
          $u = "SELECT * FROM user_wis INNER JOIN photo_user_wis ON (photo_user_wis.photo = user_wis.photo)
                INNER JOIN places ON (places.id = user_wis.you_lives)
-               INNER JOIN  provincewis ON (provincewis.id_proWis = user_wis.province) WHERE user_Wis.Username LIKE '%$people%' OR last_name LIKE '%$people%' ";
+               INNER JOIN  provincewis ON (provincewis.id_proWis = user_wis.province) WHERE user_wis.last_name LIKE '%$people%' ";
          $uq = $mysqli -> query($u);
          if(!empty($people)) {
              if ($uq->num_rows > 0) {

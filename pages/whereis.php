@@ -33,6 +33,9 @@ if(isset($_SESSION['user']) == false){
 <body>
 <?php
 include('../tools/header.php');
+if($name == "" && $province == 0 && $you_lives == 0 && $about_me == "" && $socialmedia == ""){
+echo "<div class='alert alert-info' id='mensaje'>Hola bienvenido a Whereis.com.pa, mejora tu experiencia llenando tu informacion personal aqu&iacute;: <a href='account'>Cuenta</a><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+}
 ?>
 <div class="container-fluid where_is">
     <div class="search-trade">
@@ -63,14 +66,14 @@ include('../tools/header.php');
         ?>
             </div>
     </div>
-   <!-- <div class="micro">
+    <div class="micro">
             <div id="microphone"></div>
             <div id="result" class="micro-text"></div>
             <div id="info" class="micro-text"></div>
             <div id="error" class="micro-text"></div>
     </div>
 	        <div id=consulta></div>
-            <div id="boton"></div>-->
+            <div id="boton"></div>
 </div>
 <?php
 include('../tools/footer.php');
